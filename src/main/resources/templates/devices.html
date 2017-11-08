@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Devices</title>
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../static/css/main.css"/>
+    <script type="text/javascript" th:src="@{/js/devices.js}"
+            src="../static/js/devices.js"></script>
+    <script type="text/javascript" th:src="@{/js/util.js}"
+            src="../static/js/util.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <table id="table" class="message-table"></table>
+    </div>
+    <div class="button-container">
+        <input name="settings" type="button" value="Settings" onclick="window.location='/settings';"/>
+        <input id="messages" name="messages" type="button" value="Messages"/>
+        <input name="logout" type="button" value="Logout" onclick="window.location='/logout';"/>
+    </div>
+</body>
+</html>

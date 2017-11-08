@@ -1,0 +1,32 @@
+#chat{
+    background-color: white;
+    margin: 5px;
+}
+
+.main-chat-container{
+    margin: 5% 3% 0;
+    padding: 1% 1% 1% 0;
+    text-align: center;
+    border: 1px solid aquamarine;
+}
+
+.textarea{
+    width: 35%;
+    height: 30px;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+#left {
+    display: inline-block;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#right {
+    display: inline-block;
+    width: 80%;
+}

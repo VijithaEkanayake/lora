@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Chat</title>
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../static/css/main.css"/>
+    <link rel="stylesheet" th:href="@{/css/chat.css}"
+          href="../static/css/chat.css"/>
+
+    <script type="text/javascript" th:src="@{/js/chat.js}"
+            src="../static/js/chat.js"></script>
+    <script type="text/javascript" th:src="@{/js/util.js}"
+            src="../static/js/util.js"></script>
+</head>
+<body>
+    <div id="main" class="main-chat-container">
+        <div id="recipientDiv"></div>
+        <div id="left">
+        </div>
+        <div id="right">
+            <div id="chat">
+
+            </div>
+            <label for="textarea"></label>
+            <textarea id="textarea" class="textarea"></textarea>
+            <br>
+            <button id="send">Send Message</button>
+        </div>
+    </div>
+</body>
+</html>

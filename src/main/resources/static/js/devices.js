@@ -1,0 +1,36 @@
+document.addEventListener("DOMContentLoaded", function(){
+    getMessages();
+    document.getElementById("messages").addEventListener("click", function(){ window.location=shapeURL("/messages"); });
+});
+
+var getMessages = function(){
+    document.getElementById("table").innerHTML = '';
+    var request = new XMLHttpRequest;
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            var data = JSON.parse(request.responseText);
+            var table = document.getElementById("table");
+            var header = table.createTHead();
+            var headerRow = header.insertRow(0);
+            headerRow.insertCell(0).innerHTML = "<b>UUID</b>";
+            headerRow.insertCell(1).innerHTML = "<b>Lora ID</b>";
+            headerRow.insertCell(2).innerHTML = "<b>Coordinates</b>";
+            headerRow.insertCell(3).innerHTML = "<b>Last Used Gateway</b>";
+            headerRow.insertCell(4).innerHTML = "<b>LUG Time</b>";
+
+            var foot = table.createTFoot();
+            for (var i = 0; i < data.length; i++) {
+                var row = foot.insertRow(i);
+                var link = shapeURL("/device/" + data[i]["id"]);
+                row.insertCell(0).innerHTML = `<a href="${link}">${data[i]["id"]}</a>`;
+                row.insertCell(1).innerHTML = data[i]["loraid"];
+                row.insertCell(2).innerHTML = data[i]["longitude"] + ", " + data[i]["latitude"];
+                row.insertCell(3).innerHTML = data[i]["lastUsedGateway"];
+                row.insertCell(4).innerHTML = time(data[i]["lastUsedGatewayDate"]);
+            }
+        }
+    };
+
+    request.open("GET", shapeURL("/lora/devices"));
+    request.send();
+};
